@@ -1,4 +1,12 @@
-var http = require('http');
+var http = require('http')
+ , winston = require('winston');
+
+var logger = new (winston.Logger)({
+    transports: [
+      new (winston.transports.File)({ filename: 'naver-keyword.log' })
+    ]
+});
+
 
 // http://openapi.naver.com/search?key=501765b8609584482226894c539fdaf7&target=rank&query=nexearch
 var options = {
@@ -8,6 +16,12 @@ var options = {
 };
 
 http.createServer(function(req, res){
+	
+	if(logger) logger.log('info', {
+		ip:req.connection.remoteAddress, 
+		time:Date.now(), 
+		msg:'connect test server -- number 2'
+	});
 	
 	http.get(options, function(response){
 		var body = "";
