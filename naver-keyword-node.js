@@ -44,5 +44,5 @@ http.createServer(function(req, res){
 	});
 
 }).listen(9018, function(){
-	console.log('Server Running at http://soreply.com:9018/')
+	console.log('Server Running at http://serverip:port/')
 });
