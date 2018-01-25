@@ -8,11 +8,11 @@ var logger = new (winston.Logger)({
 });
 
 
-// http://openapi.naver.com/search?key=501765b8609584482226894c539fdaf7&target=rank&query=nexearch
+// http://openapi.naver.com/search?key={{naver_app_key}}&target=rank&query=nexearch
 var options = {
 	host: 'openapi.naver.com',
 	port: 80,
-	path: '/search?key=501765b8609584482226894c539fdaf7&target=rank&query=nexearch'
+	path: '/search?key={{naver_app_key}}&target=rank&query=nexearch'
 };
 
 http.createServer(function(req, res){
